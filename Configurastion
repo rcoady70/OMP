@@ -1,9 +1,17 @@
-oh-my-posh init pwsh --config "https://raw.githubusercontent.com/rcoady70/OMP/refs/heads/main/OhMyPosh.json" | Invoke-Expression
+#oh-my-posh --version
+# edit profile  code $Profile
 
-# Chocolatey profile (unchanged)
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
+if (Get-Module -ListAvailable -Name posh-git) {
+    Import-Module posh-git
+}
+
+oh-my-posh init pwsh `
+  --config https://raw.githubusercontent.com/rcoady70/OMP/main/OhMyPosh.json `
+  | Invoke-Expression
+
+ # Only jump to repo if we started in our home folder
+if ($PWD.Path -ieq $HOME) {
+    cd "C:\Users\RichardCoady\repos\HelliosCFA\Hellios.Odyssey"
 }
 
 # Remove the built-in cd alias so our function takes over
@@ -34,9 +42,4 @@ function cd {
     else {
         Write-Host "cd: path not found: $path"
     }
-}
-
-# Only jump to C:\dev if we started in our home folder
-if ($PWD.Path -ieq $HOME) {
-    cd "C:\dev"
 }
