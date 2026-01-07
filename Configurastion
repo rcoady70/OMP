@@ -1,4 +1,4 @@
-oh-my-posh init pwsh --config "https://gist.githubusercontent.com/rcoady70/60c5d900d30d30980fef084128b50da6/raw/76ae1c8993c56299d1184f5008f1262dc067d885/ardalis.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "https://raw.githubusercontent.com/rcoady70/OMP/refs/heads/main/OhMyPosh.json" | Invoke-Expression
 
 # Chocolatey profile (unchanged)
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
