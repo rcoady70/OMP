@@ -1,0 +1,62 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "console_title": true,
+  "console_title_style": "template",
+  "console_title_template": "{{ .Folder }} ({{ .Shell }}{{ if .Root }} - ⚡ADMIN⚡{{ end }})",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0c6",
+          "template": "\ue86c {{ if .Root }}⚡ {{ end }}",
+          "foreground": "#fff",
+          "background": "#E36464",
+          "type": "shell",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "folder_depth": 2,
+            "style": "agnoster_short"
+          },
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
+          "template": " {{ .Path }} ",
+          "foreground": "#fff",
+          "background": "green",
+          "type": "path",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "branch_icon": ""
+          },
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
+          "template": " git({{ .HEAD }}) ",
+          "foreground": "#fff",
+          "background": "lightCyan",
+          "type": "git",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "time_format": "15:04"
+          },
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
+          "template": " {{ .CurrentDate | date .Format }} ",
+          "foreground": "#fff",
+          "background": "lightMagenta",
+          "type": "time",
+          "style": "diamond"
+        }
+      ]
+    }
+  ],
+  "version": 3,
+  "final_space": true
+}
